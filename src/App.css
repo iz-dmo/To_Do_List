@@ -1,0 +1,75 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  font-family: sans-serif;
+}
+
+.app-header .logo {
+  width: 100px;
+  height: auto;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 320px;
+  margin-top: 20px;
+}
+
+.input-text,
+.input-textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-textarea {
+  resize: none;
+  height: 70px;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 340px;
+}
+
+.btn-add:hover {
+  background-color: #0056b3;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 340px;
+}
+
+label {
+  font-weight: 300;
+}
+
+.input-date,
+.input-select {
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
