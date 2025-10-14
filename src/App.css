@@ -73,3 +73,61 @@ label {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.list-todo {
+  border: 2px solid #ffffff33; /* subtle white border with transparency */
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 320px;
+  background-color: #1e1e1e; /* dark background for contrast */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-todo h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ffffff22;
+  padding-bottom: 5px;
+}
+
+.list-todo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-todo li {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 8px 0;
+  border-bottom: 1px solid #ffffff22;
+}
+
+.list-todo li:last-child {
+  border-bottom: none;
+}
+
+.list-todo input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1);
+  accent-color: #4CAF50; /* nice green checkbox */
+}
+
+.list-todo p {
+  font-size: 0.85rem;
+  color: #bbb;
+  margin: 3px 0 0 25px; /* indent for better hierarchy */
+}
+
+.list-todo hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ffffff11;
+  margin: 6px 0;
+}
