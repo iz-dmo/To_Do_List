@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Priorities,Priorities_Default } from "../constants/priorities";
 
 export default function ToDoForm({ onCreate }) {
     const [showAllFields, setShowAllFields] = useState(false);
@@ -36,11 +37,12 @@ export default function ToDoForm({ onCreate }) {
                                 id="deadline"
                                 className="input-date"
                             />
-                            <select defaultValue="none" name="priority" id="priority" className="input-select">
-                                <option value="none">None</option>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
+                            <select defaultValue={Priorities_Default} name="priority" id="priority" className="input-select">
+                                {Object.entries(Priorities).map(([key, { label }]) => (
+                                    <option key={key} value={key}>
+                                    {label}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 

@@ -119,6 +119,12 @@ label {
   accent-color: #4CAF50; /* nice green checkbox */
 }
 
+.list-todo input[data-completed="true"] + span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
 .list-todo p {
   font-size: 0.85rem;
   color: #bbb;

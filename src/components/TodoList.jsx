@@ -1,17 +1,12 @@
-
-export function TodoList({ todos }) {
+import { ToDoListItem } from "./ToDoListItem";
+export function TodoList({ todos,onUpdate }) {
     return (
         <section className="list-todo">
             <h5>To-Do's</h5>
             <ul>
-                {todos.map((todo) => (
-                    <li key={todo.id}>
-                        <label>
-                            <input type="checkbox" name="completed" defaultChecked={todo.completed} />
-                            <span>{todo.name} | {todo.description}</span>
-                        </label>
-                        <p>{todo.deadline} || {todo.priority !== "none" && todo.priority}</p>
-                    </li>
+                {todos.map((todo) => 
+                (
+                    <ToDoListItem key={todo.id} todo={todo} onUpdate={onUpdate}/>
 
                 ))}
             </ul>

@@ -11,7 +11,7 @@ function App() {
       name: "Buy Car",
       description: "The White one",
       deadline: "2025-02-09",
-      priority: "low",
+      priority: "high",
       completed: false
     },
     {
@@ -20,7 +20,7 @@ function App() {
       description: "The Blue one",
       deadline: "2025-02-09",
       priority: "low",
-      completed: false
+      completed: true
     },
     {
       id: "3",
@@ -35,8 +35,8 @@ function App() {
       name: "Buy Car",
       description: "The Green one",
       deadline: "2025-02-09",
-      priority: "low",
-      completed: false
+      priority: "medium",
+      completed: true
     },
   ];
 
@@ -51,7 +51,7 @@ function App() {
 
       <ToDoForm onCreate={handleCreate} />
       {/* {JSON.stringify(todos)} */}
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} onUpdate={handleUpdate} />
     </div>
   );
 
@@ -60,6 +60,10 @@ function App() {
       ...prevTodos,
       { id: `${prevTodos.length + 1}`, ...newTodo },
     ]);
+  }
+
+  function handleUpdate(id, newTodo) {
+    setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? newTodo : todo)));
   }
 }
 
