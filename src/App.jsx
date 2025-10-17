@@ -41,7 +41,7 @@ function App() {
   ];
 
 
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(Todos_default);
   return (
     <div className="app-container">
       <header className="app-header">
