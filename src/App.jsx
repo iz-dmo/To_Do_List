@@ -43,6 +43,7 @@ function App() {
 
 
   const [todos, setTodos] = useState(Todos_default);
+  const [filter,setFilter] = useState({});
   return (
     <div className="app-container">
       <header className="app-header">
@@ -52,8 +53,8 @@ function App() {
 
       <ToDoForm onCreate={handleCreate} />
       {/* {JSON.stringify(todos)} */}
-      <ToDoFilter/>
-      <TodoList todos={todos} onUpdate={handleUpdate} onDelete={handleDelete}/>
+      <ToDoFilter onFilter={setFilter}/>
+      <TodoList todos={todos.filter(FilterToDo)} onUpdate={handleUpdate} onDelete={handleDelete}/>
     </div>
   );
 
@@ -70,6 +71,14 @@ function App() {
 
   function handleDelete(id){
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
+  function FilterToDo(todo){
+    const {completed,priority} = filter;
+    return (
+      (completed === "" || todo.completed === completed) && 
+      (priority === "" || todo.priority === priority)
+    );
   }
 }
 

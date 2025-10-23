@@ -3,8 +3,8 @@
 
 export const Completed_Filter = {
     all : {label : "All", value:""},
-    active : {label : "Active", value:"false"},
-    completed : {label : "Completed", value:"true"},
+    active : {label : "Active", value:false},
+    completed : {label : "Completed", value:true},
 };
 
 export const Priority_Filter = {

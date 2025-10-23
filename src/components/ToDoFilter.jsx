@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Completed_Filter,Priority_Filter } from "../constants/filter";
 
-export function ToDoFilter(){
+export function ToDoFilter({onFilter}){
     const [completed,setCompleted] = useState("all");
     const [priority,setPriority] = useState("all");
 
+    useEffect(() => {
+        const filter = {
+            completed : Completed_Filter[completed].value,
+            priority : Priority_Filter[priority].value
+        };
+        onFilter(filter);
+    },[completed,priority]);
     return (
         <section className="filter-section">
             <h3>Filter</h3>
