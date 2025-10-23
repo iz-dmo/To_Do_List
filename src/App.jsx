@@ -3,6 +3,7 @@ import toDoLogo from "/images/to-do-list-icon.png";
 import "./App.css";
 import ToDoForm from "./components/ToDoForm";
 import { TodoList } from "./components/TodoList";
+import { ToDoFilter } from "./components/ToDoFilter";
 
 function App() {
   const Todos_default = [
@@ -51,7 +52,8 @@ function App() {
 
       <ToDoForm onCreate={handleCreate} />
       {/* {JSON.stringify(todos)} */}
-      <TodoList todos={todos} onUpdate={handleUpdate} />
+      <ToDoFilter/>
+      <TodoList todos={todos} onUpdate={handleUpdate} onDelete={handleDelete}/>
     </div>
   );
 
@@ -64,6 +66,10 @@ function App() {
 
   function handleUpdate(id, newTodo) {
     setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? newTodo : todo)));
+  }
+
+  function handleDelete(id){
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   }
 }
 

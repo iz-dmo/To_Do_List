@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { Priorities, Priorities_Default } from "../constants/priorities";
 import { ToDoFormField } from "./ToDoFormField";
-export function ToDoListItem({ todo, onUpdate }) {
+export function ToDoListItem({ todo, onUpdate,onDelete }) {
 
     const [editing, setEditing] = useState(false);
 
     function handleCompleted(event) {
         onUpdate(todo.id, { ...todo, completed: event.target.checked });
+    }
+
+    function handleEdit(event){
+        event.preventDefault();
+        const {elements} = event.target;
+        if(elements.name.value === "") return;
+        onUpdate(todo.id,{
+            name : elements.name.value,
+            description : elements.description.value,
+            deadline : elements.deadline.value,
+            priority : elements.priority.value,
+            completed : todo.completed
+        });
+
+        setEditing(false);
     }
 
     const viewTemplate =
@@ -29,14 +44,14 @@ export function ToDoListItem({ todo, onUpdate }) {
                         </span>
                     )}
                     <button onClick={() => setEditing(true)} className="btn-small">🔄️</button>
-
+                    <button onClick={() => onDelete(todo.id)} className="btn-small">🗑️</button>
                 </p>
             </>
         );
 
     const editTemplate =
         (
-            <form className="todo-form" onReset={() => setEditing(false)}>
+            <form className="todo-form" onReset={() => setEditing(false)} onSubmit={handleEdit}>
                 <ToDoFormField todo={todo} />
                 <button type="submit" className="btn-small">🔁</button>
                 <button type="reset" className="btn-small">❌</button>
